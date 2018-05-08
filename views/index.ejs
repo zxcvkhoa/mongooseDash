@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <h2>List of resident Koalas</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <% for(x in data) { %>
+            <tr>
+                <td><a href="/koala/<%=data[x]._id%>"><%= data[x].name %></a></td>
+                <td>
+                    <form action="/koala/edit/<%=data[x]._id%>" method="GET"><input type="submit" value="Edit"></form>
+                    <form action="/koala/destroy/<%=data[x]._id%>" method="POST"><input type="submit" value="Release"></form>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+    <a href="/koala/new"><button>Add a new Koala</button></a>
+</body>
+</html>
